@@ -55,6 +55,10 @@ module RailsAdmin
           def value
             bindings[:object].send(name)
           end
+          
+          def method_name
+            name.to_s # TODO wtf ? it should not return method_id_id_id !!!
+          end
         end
       end
     end
