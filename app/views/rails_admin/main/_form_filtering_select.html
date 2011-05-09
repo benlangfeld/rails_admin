@@ -10,10 +10,9 @@
   end
 %>
 
-<%= debug field.method_name %>
               <div class="field <%= "#{field.dom_id}" %>">
                 <%= form.label field.method_name, field.label %>
-                <%= select_tag field.method_name, collection, {:include_blank => true, :selected => selected}, field.html_attributes %>
+                <%= form.select field.method_name, collection, {:include_blank => true, :selected => selected}, field.html_attributes %>
                 <% if authorized? :new, @abstract_model %>
                   <%= link_to "Add new #{config.abstract_model.to_param}", rails_admin_new_path(:model_name => config.abstract_model.to_param ), :class => "createAssociatedRecord" %>
                 <% end %>

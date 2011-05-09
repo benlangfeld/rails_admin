@@ -42,7 +42,7 @@ describe "RailsAdmin Config DSL Edit Section" do
       # Should not have the group header
       response.should_not have_tag("legend", :content => "Players")
       # Should not have any of the group's fields either
-      response.should_not have_tag("select#associations_players")
+      response.should_not have_tag("select#team_player_ids")
     end
 
     it "should be renameable" do
@@ -125,8 +125,8 @@ describe "RailsAdmin Config DSL Edit Section" do
       response.should have_tag("input#team_losses")
       response.should have_tag("input#team_win_percentage")
       response.should have_tag("input#team_revenue")
-      response.should have_tag("select#associations_players")
-      response.should have_tag("select#associations_fans")
+      response.should have_tag("select#team_player_ids")
+      response.should have_tag("select#team_fan_ids")
     end
 
     it "should appear in order defined" do

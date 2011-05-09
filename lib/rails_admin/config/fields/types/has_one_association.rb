@@ -29,6 +29,10 @@ module RailsAdmin
               (object = value).nil? ? nil : object.id
             end
           end
+          
+          def method_name
+            super.singularize + '_id'
+          end
         end
       end
     end

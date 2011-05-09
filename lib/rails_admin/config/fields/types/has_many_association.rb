@@ -32,7 +32,6 @@ module RailsAdmin
             end
           end
           
-          
           def dom_name
             "#{super}[]" # model_name[name_ids][]
           end
