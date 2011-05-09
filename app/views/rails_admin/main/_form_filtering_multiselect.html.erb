@@ -10,6 +10,10 @@
   else
     collection = field.associated_collection
   end
+  
+  # put selected objects first, in the right order.
+  collection = collection.sort_by {|a| selected.index(a[1]) || selected.size } if field.orderable
+
 
 %>
 
@@ -33,11 +37,14 @@
                         },
                         source: "<%= rails_admin_list_path(config.abstract_model.to_param, :compact => true) %>",
                       <% end %>
+                        sortable: <%= field.orderable ? 'true' : 'false' %>,
                       regional: {
                         chooseAll: "<%= t("admin.new.chose_all") %>",
                         chosen: "<%= t("admin.new.chosen", :name => config.abstract_model.model.model_name.human(:count => 2, :default => config.label.pluralize)) %>",
                         clearAll:  "<%= t("admin.new.clear_all") %>",
-                        selectChoice: "<%= t("admin.new.select_choice") %>"
+                        selectChoice: "<%= t("admin.new.select_choice") %>",
+                        up: "<%= t("admin.new.up") %>",
+                        down: "<%= t("admin.new.down") %>"
                       }
                     });
                   });

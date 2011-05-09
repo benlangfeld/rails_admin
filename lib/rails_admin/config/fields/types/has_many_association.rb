@@ -23,6 +23,11 @@ module RailsAdmin
               :multiple => "multiple",
             }
           end
+          
+          # orderable associated objects
+          register_instance_option(:orderable?) do
+            false
+          end
 
           def selected(params)
             if params["associations"]

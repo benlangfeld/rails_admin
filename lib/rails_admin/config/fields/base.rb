@@ -121,7 +121,7 @@ module RailsAdmin
         register_instance_option(:sortable?) do
           self.class.instance_variable_get("@sortable")
         end
-
+        
         register_instance_option(:view_helper) do
           self.class.instance_variable_get("@view_helper")
         end
