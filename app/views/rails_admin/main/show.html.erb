@@ -1,0 +1,22 @@
+<% head_javascript "rails_admin/application.js" %>
+      <div class="ra-block">
+        <div class="ui-widget-header">
+          <%= @page_name %>
+        </div>
+        <div class="ra-block-content">
+          <div class="ra-block-toolbar ui-state-highlight clearfix">
+            <ul>
+              <li>
+               <%= link_to t("admin.history.name"), rails_admin_history_object_path(:id => params[:id]), :class => 'ra-button' %>
+              </li>
+              <% if authorized? :list, @abstract_model, @object %>
+              <li>
+               <%= link_to t("admin.list.show_all"), rails_admin_list_path(:model_name => @abstract_model.to_param), :class => 'ra-button' %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <%= render(:partial => 'layouts/rails_admin/flash', :locals => {:flash => flash}) -%>
+          <%= render :file => "rails_admin/#{@abstract_model.to_param}/show" %>
+        </div>
+      </div>

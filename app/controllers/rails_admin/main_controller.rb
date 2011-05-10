@@ -55,7 +55,8 @@ module RailsAdmin
 
     def show
       @authorization_adapter.authorize(:show, @abstract_model, @object) if @authorization_adapter
-      render "rails_admin/#{params[:model_name]}/show", :layout => 'rails_admin/dashboard'
+      @page_name = t("admin.list.show_action").capitalize + " " + @model_config.label.downcase
+      render :layout => 'rails_admin/dashboard'
     end
 
     def new
