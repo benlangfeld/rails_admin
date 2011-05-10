@@ -21,6 +21,7 @@ lt:
     credentials:
       log_out: "Atsijungti"
     list:
+      show_action: "Show"
       edit_action: "Tvarkyti"
       delete_action: "Pašalinti"
       select_action: "Pasirinkti"

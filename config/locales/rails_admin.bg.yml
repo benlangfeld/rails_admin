@@ -22,6 +22,7 @@ bg:
     credentials:
       log_out: "Изход"
     list:
+      show_action: "Show"
       edit_action: "Редактирай"
       delete_action: "Изтрий"
       add_new: "Добави"

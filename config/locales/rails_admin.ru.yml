@@ -21,6 +21,7 @@ ru:
     credentials:
       log_out: "Выйти"
     list:
+      show_action: "Show"
       edit_action: "Редактировать"
       delete_action: "Удалить"
       select_action: "Выбрать"

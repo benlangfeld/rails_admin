@@ -19,6 +19,7 @@ fr:
     credentials:
       log_out: "Déconnectez-vous"
     list:
+      show_action: "Show"
       edit_action: "Éditer"
       delete_action: "Supprimer"
       add_new: "Nouveau"

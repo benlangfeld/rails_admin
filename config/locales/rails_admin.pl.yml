@@ -22,6 +22,7 @@ pl:
     credentials:
       log_out: "Wyloguj się"
     list:
+      show_action: "Show"
       edit_action: "Edytuj"
       delete_action: "Usuń"
       add_new: "Dodaj"

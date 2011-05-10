@@ -22,6 +22,7 @@ en:
     credentials:
       log_out: "Log out"
     list:
+      show_action: "Show"
       edit_action: "Edit"
       delete_action: "Delete"
       select_action: "Select"

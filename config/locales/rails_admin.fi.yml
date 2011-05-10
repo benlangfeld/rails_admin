@@ -20,6 +20,7 @@ fi:
     credentials:
       log_out: "Kirjaudu ulos"
     list:
+      show_action: "Show"
       edit_action: "Muokkaa"
       delete_action: "Poista"
       select_action: "Valitse"

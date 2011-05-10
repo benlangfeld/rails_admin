@@ -19,6 +19,7 @@ uk:
     credentials:
       log_out: "Вийти"
     list:
+      show_action: "Show"
       edit_action: "Редагувати"
       delete_action: "Видалити"
       add_new: "Створити"

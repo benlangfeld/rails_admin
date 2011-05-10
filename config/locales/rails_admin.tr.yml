@@ -22,6 +22,7 @@ tr:
     credentials:
       log_out: "Çıkış yap"
     list:
+      show_action: "Show"
       edit_action: "Düzenle"
       delete_action: "Sil"
       add_new: "Yeni ekle"

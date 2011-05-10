@@ -22,6 +22,7 @@ sv:
     credentials:
       log_out: "Logga ut"
     list:
+      show_action: "Show"
       edit_action: "Redigera"
       delete_action: "Ta bort"
       select_action: "Marker"

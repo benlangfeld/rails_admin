@@ -19,6 +19,7 @@ lv:
     credentials:
       log_out: "Iziet"
     list:
+      show_action: "Show"
       edit_action: "Labot"
       delete_action: "Dzēst"
       select_action: "Izvēlies"

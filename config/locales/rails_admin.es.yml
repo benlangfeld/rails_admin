@@ -19,6 +19,7 @@ es:
     credentials:
       log_out: "Cerrar sessión"
     list:
+      show_action: "Show"
       edit_action: "Editar"
       delete_action: "Eliminar"
       add_new: "Agregar"

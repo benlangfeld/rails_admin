@@ -19,6 +19,7 @@ da:
     credentials:
       log_out: "Log ud"
     list:
+      show_action: "Show"
       edit_action: "Rediger"
       delete_action: "Slet"
       add_new: "Tilføj ny"

@@ -22,6 +22,7 @@ pt-BR:
     credentials:
       log_out: "Desconectar"
     list:
+      show_action: "Show"
       edit_action: "Alterar"
       delete_action: "Excluir"
       add_new: "Adicionar"

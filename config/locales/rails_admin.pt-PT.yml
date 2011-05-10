@@ -21,6 +21,7 @@ pt-PT:
     credentials:
       log_out: "Terminar sessão"
     list:
+      show_action: "Show"
       edit_action: "Editar"
       delete_action: "Remover"
       add_new: "Adicionar"
