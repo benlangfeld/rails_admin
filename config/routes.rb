@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get "/:model_name/new", :to => :new, :as => "new"
       match "/:model_name/get_pages", :to => :get_pages, :as => "get_pages"
       post "/:model_name", :to => :create, :as => "create"
+      get "/:model_name/:id", :to => :show, :as => "show"
       get "/:model_name/:id/edit", :to => :edit, :as => "edit"
       put "/:model_name/:id", :to => :update, :as => "update"
       get "/:model_name/:id/delete", :to => :delete, :as => "delete"

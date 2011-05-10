@@ -1,7 +1,7 @@
 module RailsAdmin
   class MainController < RailsAdmin::ApplicationController
     before_filter :get_model, :except => [:index]
-    before_filter :get_object, :only => [:edit, :update, :delete, :destroy]
+    before_filter :get_object, :only => [:show, :edit, :update, :delete, :destroy]
     before_filter :get_bulk_objects, :only => [:bulk_delete, :bulk_destroy]
     before_filter :get_attributes, :only => [:create, :update]
     before_filter :check_for_cancel, :only => [:create, :update, :destroy, :bulk_destroy]
@@ -51,6 +51,11 @@ module RailsAdmin
         end
         format.xml { render :xml => @objects.to_json(:only => visible.call) }
       end
+    end
+
+    def show
+      @authorization_adapter.authorize(:show, @abstract_model, @object) if @authorization_adapter
+      render "rails_admin/#{params[:model_name]}/show", :layout => 'rails_admin/dashboard'
     end
 
     def new
@@ -304,7 +309,7 @@ module RailsAdmin
 
       flash.now[:error] = t("admin.flash.error", :name => @model_config.label, :action => t("admin.actions.#{action}d"))
       flash.now[:error] += ". #{@object.errors[:base].to_sentence}" unless @object.errors[:base].blank?
-      
+
       respond_to do |format|
         format.html { render whereto, :layout => 'rails_admin/form', :status => :not_acceptable }
         format.js   { render whereto, :layout => 'rails_admin/plain.html.erb', :status => :not_acceptable  }
