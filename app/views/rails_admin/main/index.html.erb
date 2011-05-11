@@ -14,6 +14,7 @@
                 <tr>
                   <th id="modelNameHeader"><%= t "admin.dashboard.model_name" %></th>
                   <th><%= t "admin.dashboard.last_used" %></th>
+                  <th><%= t "admin.dashboard.count" %></th>
                   <th><%= t "admin.dashboard.records" %></th>
                   <th><%= t "admin.dashboard.modify" %></th>
                 </tr>
@@ -29,6 +30,9 @@
                       <% if (last_used = @most_recent_changes[abstract_model.pretty_name]) %>
                       <%= time_ago_in_words last_used %> <%= t "admin.dashboard.ago" %>
                       <% end %>
+                      </td>
+                      <td>
+                        <span class="count"><%= @count[abstract_model.pretty_name] %></span>
                       </td>
                       <td>
                         <div class="scale">
