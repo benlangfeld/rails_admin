@@ -228,7 +228,7 @@ module RailsAdmin
 
     def get_sort_reverse_hash
       sort_reverse = if params[:sort]
-          params[:sort_reverse] == 'true'
+        params[:sort_reverse] == 'true'
       else
         not RailsAdmin.config(@abstract_model).list.sort_reverse?
       end
@@ -354,7 +354,7 @@ module RailsAdmin
       options.merge!(other)
 
       associations = @model_config.list.visible_fields.select {|f| f.association? && !f.polymorphic? }.map {|f| f.association[:name] }
-      options.merge!(:include => associations) unless associations.empty?
+      options.merge!(:joins => associations) unless associations.empty?
 
       if params[:all]
         options.merge!(:limit => per_page * 2)
