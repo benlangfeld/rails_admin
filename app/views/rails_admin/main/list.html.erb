@@ -63,7 +63,7 @@
                   <% properties.each do |property| %>
                   <% property_name = property.name %>
                   <% property_pretty_name = property.label %>
-                  <% selected = sort == property_name.to_s %>
+                  <% selected = sort == (property.sortable?.is_a?(String) ? property.sortable? : property_name).to_s %>
                   <th class="<%= "#{property.css_class}" %> <%= selected ? "selected" : nil %>">
                     <% if property.sortable? %>
                     <% sortable_field = property.sortable?.is_a?(String) ? property.sortable? : property_name %>
