@@ -257,8 +257,8 @@ module RailsAdmin
           statements << "(#{table_name}.#{property[:name]} LIKE ?)"
           values << "%#{query}%"
         end
-        @model_config.list.visible_fields.select { |property| property.type == :belongs_to_association && property.sortable?.is_a?(String) }.each do |property|
-          statements << "(#{property.sortable?} LIKE ?)"
+        @model_config.list.visible_fields.select { |property| property.type == :belongs_to_association && property.searchable?.is_a?(String) }.each do |property|
+          statements << "(#{property.searchable?} LIKE ?)"
           values << "%#{query}%"
         end
       end
