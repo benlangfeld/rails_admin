@@ -32,7 +32,7 @@
         - visible_fields.select{ |f| f.association? && !f.association[:options][:polymorphic] }.each do |field|
           - association = field.association
           - associated_model = association[:type] == :belongs_to ? association[:parent_model] : association[:child_model]
-          - fields = RailsAdmin.config(associated_model).export.visible_fields.select{ |f| !f.association? }
+          - fields = RailsAdmin.config(associated_model).list.visible_fields.select{ |f| !f.association? }
           %fieldset
             %legend= t('admin.export.fields_from_associated', :name => association[:pretty_name])
             - fields.each do |associated_model_field|
