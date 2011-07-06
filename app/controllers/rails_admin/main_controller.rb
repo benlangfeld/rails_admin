@@ -54,10 +54,8 @@ module RailsAdmin
             csv << visible.call
 
             @objects.each do |object|
-              csv << [].tap do |row|
-                visible.call.each do |field|
-                  row << object.send(field)
-                end
+              csv << @model_config.list.visible_fields.map do |property|
+                property.with.bind(:object, object).formatted_value
               end
             end
           end
