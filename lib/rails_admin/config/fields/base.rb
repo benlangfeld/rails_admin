@@ -86,10 +86,14 @@ module RailsAdmin
             self.associated_model_config.list.fields.map { |f| { :column => "#{self.associated_model_config.abstract_model.model.table_name}.#{f.name}", :type => f.type } }
           else
             [self.searchable].flatten.map do |f|
+              if f.is_a?(String)
+                table_name, column_name = f.split '.'
+                f = column_name.to_sym
+              end
               field_name = f.is_a?(Hash) ? f.values.first : f
               abstract_model = f.is_a?(Hash) ? AbstractModel.new(f.keys.first) : (self.association? ? self.associated_model_config.abstract_model : self.abstract_model)
               property = abstract_model.properties.find{ |p| p[:name] == field_name }
-              { :column => "#{abstract_model.model.table_name}.#{property[:name]}", :type => property[:type] }
+              { :column => "#{table_name || abstract_model.model.table_name}.#{property[:name]}", :type => property[:type] }
             end
           end
         end
