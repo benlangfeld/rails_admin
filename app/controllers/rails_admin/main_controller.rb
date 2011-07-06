@@ -6,7 +6,7 @@ module RailsAdmin
     layout "rails_admin/main"
 
     before_filter :get_model, :except => [:index]
-    before_filter :get_object, :only => [:edit, :update, :delete, :destroy]
+    before_filter :get_object, :only => [:show, :edit, :update, :delete, :destroy]
     before_filter :get_attributes, :only => [:create, :update]
     before_filter :check_for_cancel, :only => [:create, :update, :destroy, :export, :bulk_destroy]
 
@@ -77,6 +77,11 @@ module RailsAdmin
           end
         end
       end
+    end
+
+    def show
+      @authorization_adapter.authorize(:show, @abstract_model, @object) if @authorization_adapter
+      @page_name = t("admin.list.show_action").capitalize + " " + @model_config.label.downcase
     end
 
     def new
@@ -392,7 +397,7 @@ module RailsAdmin
       elsif operator == '_not_empty' || value == '_not_empty'
         return ["(#{column} != '')"]
       end
-      
+
       case type
       when :boolean
          ["(#{column} #{operator == 'default' ? '=' : operator} ?)", ['true', 't', '1'].include?(value)] if ['true', 'false', 't', 'f', '1', '0'].include?(value)

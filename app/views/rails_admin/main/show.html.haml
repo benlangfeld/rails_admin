@@ -1,0 +1,14 @@
+-# FIXME: too much duplication between this page and edit page
+- head_style "rails_admin/form.css"
+- head_javascript "rails_admin/application.js"
+- head_javascript "rails_admin/ra.remote-form.js"
+- head_javascript "rails_admin/activo/application.js"
+
+#block-tables.block
+  = breadcrumbs_for :show, @abstract_model
+
+  .content
+    %h2.title= @page_name
+    .inner
+      = render :partial => 'layouts/rails_admin/flash', :locals => {:flash => flash}
+      = render :file => "rails_admin/#{@abstract_model.to_param}/show"
