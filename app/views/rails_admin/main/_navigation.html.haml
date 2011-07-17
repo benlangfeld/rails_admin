@@ -10,7 +10,7 @@
   - root_models.each do |model|
     - children = [model] + models.select { |m| m.parent.to_s == model.abstract_model.model.to_s }
     - tab_titles = children.map { |child| child.abstract_model.pretty_name.downcase }
-    %li{:class => "#{"active" if tab_titles.include? @page_type} #{"more" if children.size > 1}"}
+    %li{:class => "#{"active" if tab_titles.include? @page_type} #{"more" if children.size > 1} #{"parent" if children.size > 1}"}
       - if children.size == 1
         = link_to(model.label.pluralize, rails_admin_list_path(:model_name => model.abstract_model.to_param))
       - else
